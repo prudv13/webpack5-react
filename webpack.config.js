@@ -26,7 +26,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
             },
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -36,5 +36,8 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin(),
-    ]
+    ],
+    resolve: {
+        extensions: [".js", ".jsx"],
+    },
 }
