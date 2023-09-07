@@ -19,8 +19,15 @@ module.exports = {
         compress: true,
         historyApiFallback: true
     },
+    output: {
+        assetModuleFilename: "assets/[hash][ext][query]"
+    },
     module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: "asset/resource",
+            },
             {
                 test: /\.(s[ac]|c)ss$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
